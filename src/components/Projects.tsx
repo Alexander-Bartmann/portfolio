@@ -1,9 +1,11 @@
 import { motion, useReducedMotion } from "motion/react";
 import { reveal } from "../lib/motion";
 import { projects } from "../data/projects";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Projects() {
   const shouldReduce = useReducedMotion();
+  const { lang, t } = useLanguage();
 
   return (
     <section id="projekte" className="py-20 md:py-32">
@@ -14,11 +16,11 @@ function Projects() {
         className="mx-auto max-w-5xl px-6"
       >
         <p className="mb-6 font-mono text-xs tracking-[0.2em] text-muted uppercase">
-          Projekte
+          {t("project.label")}
         </p>
 
         <h2 className="font-display text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          Woran ich gearbeitet habe
+          {t("project.heading")}
         </h2>
 
         <div className="mt-16 flex flex-col gap-24">
@@ -32,12 +34,12 @@ function Projects() {
                 <div className="flex flex-1 flex-col gap-5">
                   {project.team && (
                     <p className="font-mono text-xs tracking-wider text-muted uppercase">
-                      {project.team}
+                      {project.team[lang]}
                     </p>
                   )}
 
                   <p className="leading-relaxed text-muted">
-                    {project.description}
+                    {project.description[lang]}
                   </p>
 
                   <div className="flex flex-wrap gap-2">
@@ -61,7 +63,7 @@ function Projects() {
                                    font-medium text-accent transition
                                    hover:bg-accent hover:text-bg"
                       >
-                        Live ansehen
+                        {t("project.link")}
                       </a>
                     )}
                     {project.githubUrl && (

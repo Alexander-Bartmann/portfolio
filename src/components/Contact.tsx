@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { reveal } from "../lib/motion";
 import { useState } from "react";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const inputClass =
   "w-full rounded-md border border-line bg-surface px-3 py-2 text-sm " +
@@ -9,6 +10,7 @@ const inputClass =
 
 function Contact() {
   const shouldReduce = useReducedMotion();
+  const { t } = useLanguage();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,15 +25,15 @@ function Contact() {
     setFehler("");
 
     if (!name.trim()) {
-      setFehler("Bitte gib deinen Namen an.");
+      setFehler(t("contact.errorName"));
       return;
     }
     if (!email.trim()) {
-      setFehler("Bitte gib deine E-Mail-Adresse an.");
+      setFehler(t("contact.errorEmail"));
       return;
     }
     if (!nachricht.trim()) {
-      setFehler("Bitte schreib mir eine Nachricht.");
+      setFehler(t("contact.errorMessage"));
       return;
     }
 
@@ -73,19 +75,16 @@ function Contact() {
         className="mx-auto max-w-5xl px-6"
       >
         <p className="mb-6 font-mono text-xs tracking-[0.2em] text-muted uppercase">
-          Kontakt
+          {t("contact.label")}
         </p>
 
         <h2 className="font-display text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          Schreib mir
+          {t("contact.heading")}
         </h2>
 
         <div className="mt-10 grid gap-12 md:grid-cols-2">
           <div>
-            <p className="leading-relaxed text-muted">
-              Ob konkrete Stelle, Rückfrage zu einem Projekt oder einfach
-              Austausch — schreib mir gern. Ich melde mich zeitnah zurück.
-            </p>
+            <p className="leading-relaxed text-muted">{t("contact.intro")}</p>
 
             <a
               href="mailto:alexander-bartmann@outlook.de"
@@ -98,7 +97,7 @@ function Contact() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <div>
               <label htmlFor="name" className="mb-1.5 block text-sm text-muted">
-                Name
+                {t("contact.name")}
               </label>
               <input
                 id="name"
@@ -115,7 +114,7 @@ function Contact() {
                 htmlFor="email"
                 className="mb-1.5 block text-sm text-muted"
               >
-                E-Mail
+                {t("contact.email")}
               </label>
               <input
                 id="email"
@@ -132,7 +131,7 @@ function Contact() {
                 htmlFor="nachricht"
                 className="mb-1.5 block text-sm text-muted"
               >
-                Nachricht
+                {t("contact.message")}
               </label>
               <textarea
                 id="nachricht"
@@ -151,19 +150,19 @@ function Contact() {
                          px-5 py-2.5 text-sm font-medium text-accent transition
                          hover:bg-accent hover:text-bg disabled:opacity-50"
             >
-              {status === "sending" ? "Wird gesendet..." : "Absenden"}
+              {status === "sending"
+                ? t("contact.sending")
+                : t("contact.submit")}
             </button>
 
             {fehler && <p className="text-sm text-red-400">{fehler}</p>}
+
             {status === "success" && (
-              <p className="text-sm text-green-400">
-                Danke, deine Nachricht ist angekommen.
-              </p>
+              <p className="text-sm text-green-400">{t("contact.success")}</p>
             )}
+
             {status === "error" && (
-              <p className="text-sm text-red-400">
-                Da ist etwas schiefgelaufen. Schreib mir gern direkt per Mail.
-              </p>
+              <p className="text-sm text-red-400">{t("contact.error")}</p>
             )}
           </form>
         </div>

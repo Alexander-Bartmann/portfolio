@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from "motion/react";
 import { reveal } from "../lib/motion";
 import alex from "../assets/alex.webp";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function About() {
   const shouldReduce = useReducedMotion();
 
+  const { t } = useLanguage();
   return (
     <section id="ueber" className="py-20 md:py-32">
       <motion.div
@@ -16,38 +18,19 @@ function About() {
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-center">
           <div>
             <p className="mb-6 font-mono text-xs tracking-[0.2em] text-muted uppercase">
-              Über mich
+              {t("about.label")}
             </p>
 
             <h2 className="font-display text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-              Vom Verkaufen zum Bauen
+              {t("about.heading")}
             </h2>
 
             <div className="mt-10 grid gap-6 text-lg leading-relaxed text-muted">
-              <p>
-                Einige Jahre Einzelhandel und Außendienst — solide, aber nie
-                ganz erfüllend. Der Anstoß kam von zwei Seiten: Spiele haben
-                mich schon immer beschäftigt, irgendwann weniger als Spieler und
-                mehr mit der Frage, wie man sowas eigentlich baut. Und während
-                Corona wollte ich wissen, was hinter den Seiten steckt, auf
-                denen ich täglich unterwegs war.
-              </p>
-
-              <p>
-                Nach einigen kleineren Kursen habe ich mich für die
-                Weiterbildung an der Developer Akademie entschieden. Was mich
-                seitdem am meisten interessiert, ist das{" "}
-                <span className="text-text">Warum</span> — warum eine Anwendung
-                so aufgebaut ist, wie sie ist, wo ihre Schwachstellen liegen und
-                was passiert, wenn jemand sie gezielt sucht.
-              </p>
-
-              <p>
-                Heute baue ich Anwendungen von der Datenbank bis zur Oberfläche
-                und bringe sie online. Aktuell arbeite ich mich tiefer ins
-                Backend ein und suche eine Position, in der ich das im Team
-                weiterentwickeln kann.
-              </p>
+              <p>{t("about.p1")}</p>
+              <p>{t("about.p2")}</p>
+              <span className="text-text">{t("about.why")}</span>{" "}
+              {t("about.p3")}
+              <p>{t("about.p4")}</p>
             </div>
           </div>
 

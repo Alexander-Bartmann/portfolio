@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from "motion/react";
 import { reveal } from "../lib/motion";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const skills = [
   "React",
@@ -25,6 +26,7 @@ const separator = "·";
 
 function Skills() {
   const shouldReduce = useReducedMotion();
+  const { t } = useLanguage();
 
   return (
     <section id="skills" className="py-20 md:py-32">
@@ -35,10 +37,10 @@ function Skills() {
         className="mx-auto max-w-5xl px-6"
       >
         <p className="mb-6 font-mono text-xs tracking-[0.2em] text-muted uppercase">
-          Skills
+          {t("skills.label")}
         </p>
         <h2 className="font-display text-4xl leading-tight font-medium tracking-tight md:text-5xl">
-          Womit ich arbeite
+          {t("skills.heading")}
         </h2>
       </motion.div>
 

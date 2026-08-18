@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { datenschutz, impressum, type LegalDoc } from "../data/legal";
 import LegalModal from "./LegalModal";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Footer() {
   const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-line">
       <div
@@ -19,13 +22,13 @@ function Footer() {
             onClick={() => setLegalDoc(impressum)}
             className="cursor-pointer transition hover:text-accent"
           >
-            Impressum
+            {t("footer.imprint")}
           </button>
           <button
             onClick={() => setLegalDoc(datenschutz)}
             className="cursor-pointer transition hover:text-accent"
           >
-            Datenschutz
+            {t("footer.privacy")}
           </button>
 
           <a
