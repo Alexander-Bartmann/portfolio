@@ -1,4 +1,9 @@
+import { useState } from "react";
+import { datenschutz, impressum, type LegalDoc } from "../data/legal";
+import LegalModal from "./LegalModal";
+
 function Footer() {
+  const [legalDoc, setLegalDoc] = useState<LegalDoc | null>(null);
   return (
     <footer className="border-t border-line">
       <div
@@ -10,12 +15,18 @@ function Footer() {
         </p>
 
         <div className="flex flex-wrap gap-6 text-sm text-muted">
-          <a href="#impressum" className="transition hover:text-accent">
+          <button
+            onClick={() => setLegalDoc(impressum)}
+            className="cursor-pointer transition hover:text-accent"
+          >
             Impressum
-          </a>
-          <a href="#datenschutz" className="transition hover:text-accent">
+          </button>
+          <button
+            onClick={() => setLegalDoc(datenschutz)}
+            className="cursor-pointer transition hover:text-accent"
+          >
             Datenschutz
-          </a>
+          </button>
 
           <a
             href="https://github.com/Alexander-Bartmann"
@@ -36,6 +47,9 @@ function Footer() {
           </a>
         </div>
       </div>
+      {legalDoc && (
+        <LegalModal doc={legalDoc} onClose={() => setLegalDoc(null)} />
+      )}
     </footer>
   );
 }
