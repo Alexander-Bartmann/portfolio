@@ -22,7 +22,7 @@ export const projects: Project[] = [
     image: taskmanager,
     description:
       "Fullstack-Anwendung zur Aufgabenverwaltung mit Benutzerkonten. Jeder Nutzer registriert sich, meldet sich an und verwaltet ausschließlich seine eigenen Tasks und Kategorien — die Zugriffsprüfung erfolgt serverseitig bei jedem Request.",
-    liveUrl: "https://task-manager-alex.netlify.app",
+    liveUrl: "https://task-manager.alexander-bartmann.de",
     githubUrl: "https://github.com/Alexander-Bartmann/task-manager-project",
     tech: ["React", "TypeScript", "Express", "Prisma", "PostgreSQL"],
   },
@@ -35,7 +35,7 @@ export const projects: Project[] = [
       "Aufgabenverwaltung nach dem Kanban-Prinzip mit Drag & Drop, " +
       "Kontaktzuweisung und Firebase-Anbindung. Im Zweierteam entwickelt, " +
       "meine Bereiche waren Kontaktverwaltung und Layout-Komponenten.",
-    liveUrl: "https://alexander-bartmann.de/Join",
+    liveUrl: "https://join.alexander-bartmann.de",
     githubUrl: "https://github.com/Alexander-Bartmann/Join",
     tech: ["JavaScript", "Firebase", "HTML", "CSS"],
   },
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     image: polloloco,
     description:
       "2D-Jump-and-Run-Spiel mit HTML5 Canvas und objektorientiertem JavaScript. Pepe sammelt Münzen und Salsa-Flaschen, um den Endgegner zu besiegen.",
-    liveUrl: "https://alexander-bartmann.de/PolloLoco",
+    liveUrl: "https://pollo-loco.alexander-bartmann.de",
     githubUrl: "https://github.com/Alexander-Bartmann/PolloLoco",
     tech: ["JavaScript", "Canvas", "HTML", "CSS"],
   },
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     image: pokedex,
     description:
       "Pokémon-Datenbank mit Anbindung an die PokéAPI. Übersicht mit Nachladen, Detailansicht mit Werten und Entwicklungsreihe, Suche.",
-    liveUrl: "https://alexander-bartmann.de/Pokedex",
+    liveUrl: "https://pokedex.alexander-bartmann.de",
     githubUrl: "https://github.com/Alexander-Bartmann/Pokedex",
     tech: ["JavaScript", "PokeAPI", "HTML", "CSS"],
   },
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     image: notizen,
     description:
       "Persönliches Nachschlagewerk für React, TypeScript und Backend-Themen. Themen werden per Button aufgerufen und als Liste oder Tabelle dargestellt.",
-    liveUrl: "https://alex-lernen.netlify.app/",
+    liveUrl: "https://notizen.alexander-bartmann.de",
     githubUrl: "https://github.com/Alexander-Bartmann/lernen",
     tech: ["React", "TypeScript", "Vite", "CSS"],
   },
